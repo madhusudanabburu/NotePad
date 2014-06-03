@@ -18,4 +18,8 @@ buildscript {
     }
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = ‘1.12’
+}
+
 apply plugin: 'apphance-flow'
