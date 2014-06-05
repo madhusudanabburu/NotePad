@@ -30,7 +30,7 @@ task wrapper(type: Wrapper) {
 }
 
 android {
-	buildToolsVersion "19"
+	buildToolsVersion "19.0.3"
 	compileSdkVersion 19
 	
 	 sourceSets {
