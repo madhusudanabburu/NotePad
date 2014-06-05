@@ -1,4 +1,0 @@
-NotePad
-=======
-
-Demo

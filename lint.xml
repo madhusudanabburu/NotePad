@@ -2,5 +2,6 @@
 <lint>
     <issue id="InlinedApi">
         <ignore path="src/com/example/android/notepad/NotesList.java" />
+        <ignore path="org/objectweb/asm/tree/ClassNode" />
     </issue>
 </lint>
