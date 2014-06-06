@@ -9,17 +9,19 @@ buildscript {
 		classpath "com.apphance.flow:apphance-flow:$flowVer"
 		classpath "com.android.tools.build:gradle:0.10+"
 		classpath "org.ow2.asm:asm:4.0"
+		classpath "emma:emma:2.0.5312"
+		classpath "emma:emma_ant:2.0.5312"
+		classpath "junit:junit:4.7"
 	}
 	configurations.all {
 		resolutionStrategy {
 			cacheChangingModulesFor 0, 'seconds'
 		}
-		
 	}
 }
 
 apply plugin: 'android'
-
+apply from:'http://github.com/breskeby/gradleplugins/raw/master/emmaPlugin/emma.gradle'
 
 dependencies {
 	compile files('libs/android-support-v4.jar')
@@ -36,6 +38,8 @@ android {
 	defaultConfig {
 		minSdkVersion 14
 		targetSdkVersion 19
+		testPackageName "com.robotium.test"
+		testInstrumentationRunner "android.test.InstrumentationTestRunner"
 	}
 	
 	 sourceSets {
@@ -48,9 +52,18 @@ android {
 			res.srcDirs = ['res']
 			assets.srcDirs = ['assets']
 		}
-
-		instrumentTest.setRoot('test')
+		instrumentTest {
+			java.srcDirs = ['test']
+			manifest.srcFile file('AndroidManifest.xml')
+			java.srcDirs = ['test']
+			resources.srcDirs = ['test']
+			res.srcDirs = ['res']
+			assets.srcDirs = ['assets']
+		}
 	}
+	
+	 dependencies {
+		 compile fileTree(dir: 'libs', include: '*.jar')
+	 }
 	 
 }
-
