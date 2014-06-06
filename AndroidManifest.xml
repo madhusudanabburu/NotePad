@@ -96,7 +96,6 @@
                 <data android:mimeType="vnd.android.cursor.item/vnd.google.note" />
             </intent-filter>
         </activity>
-
         <activity android:name="NotesLiveFolder" android:label="@string/live_folder_name"
             android:icon="@drawable/live_folder_notes">
             <intent-filter>
